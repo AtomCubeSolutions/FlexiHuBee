@@ -1,0 +1,33 @@
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+if [ -f /usr/share/dbconfig-common/dpkg/config.mysql ]; then
+        . /usr/share/dbconfig-common/dpkg/config.mysql
+        if ! dbc_go system.spoje.net $@ ; then
+            echo 'Automatic configuration using dbconfig-common failed!'
+        fi
+fi
+
+db_version 2.0
+
+
+# Cesta k Lms
+db_input critical system.spoje.net/LMS_DIRECTORY || true
+db_go
+
+# FlexiBee URL
+db_input critical system.spoje.net/FLEXIBEE_URL || true
+db_go
+
+# FlexiBee API login
+db_input critical system.spoje.net/FLEXIBEE_LOGIN || true
+db_go
+
+# FlexiBee API password
+db_input critical system.spoje.net/FLEXIBEE_PASSWORD || true
+db_go
+
+# FlexiBee API Firma
+db_input critical system.spoje.net/FLEXIBEE_COMPANY || true
+db_go
+

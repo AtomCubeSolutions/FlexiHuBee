@@ -1,0 +1,31 @@
+{
+    "name": "vitexsoftware/flexihubee",
+    "description": "FlexiBee Exchange Hub",
+    "authors": [
+        {
+            "name": "Vítězslav Dvořák",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "require": {
+        "php": ">= 5.5.9",
+        "spoje.net/flexipeehp": "dev-master",
+        "vitexsoftware/ease-framework": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "FlexiHuBee\\": "src/classes/",
+            "FlexiHuBee\\ui\\": "src/classes/ui/",
+            "FlexiHuBee\\Engine\\": "src/classes/engine",
+            "Test\\FlexiHuBee\\": "testing/PHPUnit/src/classes/",
+            "Test\\FlexiHuBee\\ui\\": "testing/PHPUnit/src/classes/ui/",
+            "Test\\FlexiHuBee\\engine\\": "testing/PHPUnit/src/classes/engine/"
+        }
+    },
+    "require-dev": {
+        "phpunit/php-token-stream": "~1.2",
+        "robmorgan/phinx": "dev-master",
+        "phpunit/phpunit": "5.3.*",
+        "phpunit/phpunit-skeleton-generator": "*"
+    }
+}

@@ -1,0 +1,57 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.12deb2
+-- http://www.phpmyadmin.net
+--
+-- Počítač: localhost
+-- Vytvořeno: Pon 21. zář 2015, 21:01
+-- Verze serveru: 5.5.44-0+deb8u1-log
+-- Verze PHP: 5.6.13-0+deb8u1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+CREATE TABLE IF NOT EXISTS `option` (
+`option_id` int(10) unsigned NOT NULL,
+  `keyword` varchar(64) COLLATE utf8_czech_ci NOT NULL COMMENT 'Klíč',
+  `value` varchar(1024) COLLATE utf8_czech_ci NOT NULL COMMENT 'Hodnota',
+  `DatSave` datetime NOT NULL,
+  `DatCreate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci COMMENT='Registr nastavení aplikace';
+
+CREATE TABLE IF NOT EXISTS `user` (
+`id` int(11) NOT NULL,
+  `settings` longtext COLLATE utf8_czech_ci COMMENT 'Serializovana uzivatelska nastaveni',
+  `email` varchar(128) COLLATE utf8_czech_ci NOT NULL COMMENT 'Email',
+  `firstname` varchar(32) COLLATE utf8_czech_ci DEFAULT NULL,
+  `lastname` varchar(32) COLLATE utf8_czech_ci DEFAULT NULL,
+  `password` varchar(40) COLLATE utf8_czech_ci NOT NULL,
+  `login` varchar(32) COLLATE utf8_czech_ci NOT NULL COMMENT 'Login uzivatele',
+  `parent` int(10) unsigned DEFAULT NULL COMMENT 'predek klienta',
+  `partner` varchar(32) COLLATE utf8_czech_ci DEFAULT NULL COMMENT 'Kód partnera: ats apod.',
+  `DatCreate` datetime NOT NULL COMMENT 'Vytvření uživatele',
+  `DatSave` datetime DEFAULT NULL COMMENT 'poslední modifikace uživatele',
+  `last_modifier_id` int(10) unsigned DEFAULT NULL COMMENT 'id toho kdo záznam naposledy modifikoval'
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+
+ALTER TABLE `option`
+ ADD PRIMARY KEY (`option_id`), ADD UNIQUE KEY `keyword` (`keyword`), ADD KEY `value` (`value`(191));
+
+ALTER TABLE `user`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `customers_username` (`login`);
+
+ALTER TABLE `option`
+MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `user`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

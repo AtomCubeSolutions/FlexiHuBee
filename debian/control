@@ -1,0 +1,15 @@
+Source: flexihubee
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Maintainer: Vitex Software <info@vitexsoftware.cz>
+Uploaders: Vitex <vitex@hippy.cz>
+Priority: optional
+Homepage: https://www.vitexsoftware.cz/redmine/projects/flexihubee
+
+Package: flexihubee
+Depends: ${misc:Depends},ease-framework,libjs-font-awesome,php5-curl,libjs-fuelux
+Architecture: all
+Section: web
+Priority: optional
+Description: FlexiBee Hub Exchange
+ Import & Export Invoices, Contacts etc between registered FlexiBee instances

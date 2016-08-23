@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * System.Spoje.Net - Konfigurace aplikace.
+ *
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  2015 Spoje.Net
+ */
+
+/**
+ * Adresa odesilatele
+ */
+define('SEND_MAILS_FROM', 'noreply@spoje.net');
+/**
+ * Databázový server
+ */
+define('DB_SERVER', 'localhost');
+/**
+ * Uživatelské jméno k databázi
+ */
+define('DB_SERVER_USERNAME', 'system');
+/**
+ * Heslo k databázi
+ */
+define('DB_SERVER_PASSWORD', 'system');
+/**
+ * Název databáze
+ */
+define('DB_DATABASE', 'lms');
+
+/**
+ * Adresář pro zápis logů
+ */
+define('LOG_DIRECTORY', '/var/tmp/');
+
+/**
+ * Adresář LMS
+ */
+define('LMS_DIRECTORY', '/var/www/html/lms/');
+
+/**
+ * Adresář Skladu
+ */
+define('SKLAD_DIRECTORY', '/var/www/html/skladu/');
+
+/**
+ * Výchozí odesilatel zpráv
+ */
+define('EMAIL_FROM', 'system@spojen.net');
+/**
+ * Kam posílat oznámení o nových registracích
+ */
+define('SEND_INFO_TO', 'moora@murka.cz');
+
+/**
+ * URL Flexibee API
+ */
+define('FLEXIBEE_URL', 'https://flexibee.spoje.net/');
+/**
+ * Uživatel FlexiBee API
+ */
+define('FLEXIBEE_LOGIN', 'system');
+/**
+ * Heslo FlexiBee API
+ */
+define('FLEXIBEE_PASSWORD', 'system');
+/**
+ * Společnost v FlexiBee
+ */
+define('FLEXIBEE_COMPANY', 'Spoje.Net');

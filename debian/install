@@ -1,0 +1,15 @@
+src/*.php		usr/share/system.spoje.net
+src/*.ico		usr/share/system.spoje.net
+src/css/*.css	usr/share/system.spoje.net/css
+#src/css/images/*	usr/share/system.spoje.net/css/images
+#src/css/msdropdown/*	usr/share/system.spoje.net/css/msdropdown
+src/js/*.js		usr/share/system.spoje.net/js
+#src/js/msdropdown/*.js		usr/share/system.spoje.net/js/msdropdown
+#src/img/*		usr/share/system.spoje.net/img
+src/images/*		usr/share/system.spoje.net/images
+src/includes/*.php		usr/share/system.spoje.net/includes
+src/classes/*.php		usr/share/system.spoje.net/classes
+debian/conf/system.spoje.net.conf	etc/apache2/conf-available
+debian/conf/system.spoje.net.service etc/avahi/services
+README.md               usr/share/doc/system.spoje.net/
+

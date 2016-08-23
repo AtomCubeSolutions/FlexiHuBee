@@ -1,0 +1,30 @@
+Template: system.spoje.net/LMS_DIRECTORY
+Type: string
+Default: /var/www/html/lms/
+Description: Cesta ke kořenu LMS
+ Z LMS se načítají třídy a jiné kusy kódu. Proto je třeba znát k nim cestu.
+
+Template: system.spoje.net/FLEXIBEE_COMPANY
+Type: string
+Default: Spoje.Net
+Description: Výchozí firma pro operace s API
+ Zatím bude stačit pouze jedna firma
+
+Template: system.spoje.net/FLEXIBEE_URL
+Type: string
+Default: https://flexibee.spoje.net/
+Description: Url k API flexibee
+ Adresa kde běží FlexiBee API
+
+Template: system.spoje.net/FLEXIBEE_LOGIN
+Type: string
+Default: spoje
+Description: Login pro připojení k API Flexibee
+ Login přiděluje správce FlexiBee
+
+Template: system.spoje.net/FLEXIBEE_PASSWORD
+Type: string
+Default: XXXX
+Description: Heslo pro připojení k API Flexibee
+ Heslo přiděluje správce FlexiBee
+
