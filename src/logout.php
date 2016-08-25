@@ -3,7 +3,7 @@
 namespace FlexiHuBee;
 
 /**
- * Odhlašovací stránka.
+ * Sign Off page.
  *
  * @author    Vitex <vitex@hippy.cz>
  * @copyright Vitex@hippy.cz (G) 2009,2011
@@ -17,11 +17,21 @@ if ($oUser->getUserID()) {
     $oUser->addStatusMessages($messagesBackup);
 }
 
-$oPage->addItem(new ui\PageTop(_('Odhlášení')));
+$oPage->addItem(new ui\PageTop(_('Sign Off')));
 
-$oPage->container->addItem('<br/><br/><br/><br/>');
-$oPage->container->addItem(new \Ease\Html\Div(new \Ease\Html\ATag('login.php', _('Děkujeme za vaši přízeň a těšíme se na další návštěvu'), ['class' => 'jumbotron'])));
-$oPage->container->addItem('<br/><br/><br/><br/>');
+$byerow  = new \Ease\TWB\Row();
+$byerow->addColumn(2);
+$byeInfo = $byerow->addColumn(6, new \Ease\Html\H1Tag(_('Good bye')));
+
+
+$byeInfo->addItem('<br/><br/><br/><br/>');
+$byeInfo->addItem(new \Ease\Html\Div(new \Ease\Html\ATag('login.php',
+    _('
+Thank you for your patronage and look forward to another visit'),
+    ['class' => 'jumbotron'])));
+$byeInfo->addItem('<br/><br/><br/><br/>');
+
+$oPage->container->addItem($byerow);
 
 $oPage->addItem(new ui\PageBottom());
 

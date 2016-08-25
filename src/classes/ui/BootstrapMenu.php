@@ -1,9 +1,9 @@
 <?php
 /**
- * FlexiHuBee - Stránka Webu.
+ * FlexiHuBee - BootStrap Menu.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Vitex Software
+ * @copyright  2015-2016 Vitex Software
  */
 
 namespace FlexiHuBee\ui;
@@ -28,7 +28,7 @@ class BootstrapMenu extends \Ease\TWB\Navbar
                                 $properties = null)
     {
         parent::__construct('Menu',
-            new \Ease\Html\ImgTag('images/logo.png', _('Vitex Software'), 24, 24,
+            new \Ease\Html\ImgTag('images/logo.png', _('FlexiHUBee'), 24, 24,
             ['class' => 'img-rounded']), ['class' => 'navbar-fixed-top']);
 
         $user = \Ease\Shared::user();
@@ -41,14 +41,14 @@ class BootstrapMenu extends \Ease\TWB\Navbar
                     '
 <li class="divider-vertical"></li>
 <li class="dropdown">
-<a class="dropdown-toggle" href="login.php" data-toggle="dropdown"><i class="icon-circle-arrow-left"></i> '._('Přihlášení').'<strong class="caret"></strong></a>
+<a class="dropdown-toggle" href="login.php" data-toggle="dropdown"><i class="icon-circle-arrow-left"></i> '._('Sign In').'<strong class="caret"></strong></a>
 <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px; left: -120px;">
 <form method="post" class="navbar-form navbar-left" action="login.php" accept-charset="UTF-8">
 <input style="margin-bottom: 15px;" type="text" placeholder="'._('login').'" id="username" name="login">
-<input style="margin-bottom: 15px;" type="password" placeholder="'._('Heslo').'" id="password" name="password">
+<input style="margin-bottom: 15px;" type="password" placeholder="'._('Password').'" id="password" name="password">
 <!-- input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
-<label class="string optional" for="remember-me"> '._('zapamatuj si mne').'</label -->
-<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="'._('přihlásit').'">
+<label class="string optional" for="remember-me"> '._('Remember Me').'</label -->
+<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="'._('Sign In').'">
 </form>
 </div>', 'right'
                 );
@@ -56,18 +56,18 @@ class BootstrapMenu extends \Ease\TWB\Navbar
         } else {
             $userMenu = '<li class="dropdown" style="width: 120px; text-align: right; background-image: url( '.$user->getIcon().' ) ;  background-repeat: no-repeat; background-position: left center; background-size: 40px 40px;"><a href="#" class="dropdown-toggle" data-toggle="dropdown">'.$user->getUserLogin().' <b class="caret"></b></a>
 <ul class="dropdown-menu" style="text-align: left; left: -60px;">
-<li><a href="settings.php">'.\Ease\TWB\Part::GlyphIcon('wrench').'<i class="icon-cog"></i> '._('Nastavení').'</a></li>
+<li><a href="settings.php">'.\Ease\TWB\Part::GlyphIcon('wrench').'<i class="icon-cog"></i> '._('Settings').'</a></li>
 ';
 
             if ($user->getSettingValue('admin')) {
-                $userMenu .= '<li><a href="overview.php">'.\Ease\TWB\Part::GlyphIcon('list').' '._('Přehled konfigurací').'</a></li>';
+//                $userMenu .= '<li><a href="overview.php">'.\Ease\TWB\Part::GlyphIcon('list').' '._('Přehled konfigurací').'</a></li>';
             }
 
             $this->addMenuItem($userMenu.'
-<li><a href="changepassword.php">'.\Ease\TWB\Part::GlyphIcon('lock').' '._('Změna hesla').'</a></li>
-<li><a href="about.php">'.\Ease\TWB\Part::GlyphIcon('info-sign').' '._('O Programu').'</a></li>
+<li><a href="changepassword.php">'.\Ease\TWB\Part::GlyphIcon('lock').' '._('Password change').'</a></li>
+<li><a href="about.php">'.\Ease\TWB\Part::GlyphIcon('info-sign').' '._('About FlexiHUBee').'</a></li>
 <li class="divider"></li>
-<li><a href="logout.php">'.\Ease\TWB\Part::GlyphIcon('off').' '._('Odhlášení').'</a></li>
+<li><a href="logout.php">'.\Ease\TWB\Part::GlyphIcon('off').' '._('Sign Off').'</a></li>
 </ul>
 </li>
 ', 'right');
@@ -75,7 +75,7 @@ class BootstrapMenu extends \Ease\TWB\Navbar
     }
 
     /**
-     * Vypíše stavové zprávy.
+     * Show Status Messages.
      */
     public function draw()
     {

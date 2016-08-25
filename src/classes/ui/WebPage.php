@@ -1,6 +1,6 @@
 <?php
 /**
- * FlexiHuBee - Uživatel.
+ * FlexiHuBee - WebPage.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
  * @copyright  2015 Vitex Software
@@ -11,28 +11,28 @@ namespace FlexiHuBee\ui;
 class WebPage extends \Ease\TWB\WebPage
 {
     /**
-     * Hlavní blok stránky.
+     * Page's main block.
      *
      * @var \Ease\Html\DivTag
      */
     public $container = null;
 
     /**
-     * První sloupec.
+     * First column.
      *
      * @var \Ease\Html\DivTag
      */
     public $columnI = null;
 
     /**
-     * Druhý sloupec.
+     * Second column.
      *
      * @var \Ease\Html\DivTag
      */
     public $columnII = null;
 
     /**
-     * Třetí sloupec.
+     * Third column.
      *
      * @var \Ease\Html\DivTag
      */
@@ -54,19 +54,35 @@ class WebPage extends \Ease\TWB\WebPage
         $this->head->addItem('<link rel="shortcut icon" type="image/svg+xml" href="images/logo.png">');
         $this->head->addItem('<link rel="apple-touch-icon-precomposed"  type="image/svg+xml" href="images/logo.png">');
         $this->head->addItem('<link rel="stylesheet" href="/javascript/font-awesome/css/font-awesome.min.css">');
+        $this->addCss('body { background-image: url("images/logo-big.png"); background-repeat: no-repeat; background-position: 4px 50px; }');
 
-        $this->container = $this->addItem(new \Ease\TWB\Container());
+        $this->container = $this->addItem(new \Ease\TWB\Container('<p></p>'));
     }
 
     /**
-     * Pouze pro admina.
+     * Divide page to three columns layout
+     */
+    function addPageColumns()
+    {
+        $row = $this->container->addItem(new \Ease\Html\Div(null,
+            ['class' => 'row']));
+        $this->columnI   = $row->addItem(new \Ease\Html\Div(null,
+            ['class' => 'col-md-4']));
+        $this->columnII  = $row->addItem(new \Ease\Html\Div(null,
+            ['class' => 'col-md-4']));
+        $this->columnIII = $row->addItem(new \Ease\Html\Div(null,
+            ['class' => 'col-md-4']));
+    }
+
+    /**
+     * Only for admin.
      *
      * @param string $loginPage
      */
     public function onlyForAdmin($loginPage = 'login.php')
     {
         if (!$this->user->getSettingValue('admin')) {
-            \Ease\Shared::user()->addStatusMessage(_('Nejprve se prosím přihlašte jako admin'),
+            \Ease\Shared::user()->addStatusMessage(_('Sign in as admin first'),
                 'warning');
             $this->redirect($loginPage);
             exit;
@@ -74,9 +90,9 @@ class WebPage extends \Ease\TWB\WebPage
     }
 
     /**
-     * Nepřihlášeného uživatele přesměruje na přihlašovací stránku.
+     * Redirect anonymous user to login page
      *
-     * @param string $loginPage adresa přihlašovací stránky
+     * @param string $loginPage login page address
      */
     public function onlyForLogged($loginPage = 'login.php')
     {

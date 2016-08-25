@@ -1,6 +1,8 @@
 {
     "name": "vitexsoftware/flexihubee",
     "description": "FlexiBee Exchange Hub",
+    "license": "proprietary",
+    "version": "0.0",
     "authors": [
         {
             "name": "Vítězslav Dvořák",
@@ -9,7 +11,7 @@
     ],
     "require": {
         "php": ">= 5.5.9",
-        "spoje.net/flexipeehp": "dev-master",
+        "spoje.net/flexipeehp": ">= 1.0",
         "vitexsoftware/ease-framework": "dev-master"
     },
     "autoload": {

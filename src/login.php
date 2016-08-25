@@ -47,14 +47,18 @@ $loginRow = new \Ease\TWB\Row();
 $infoColumn = $loginRow->addItem(new \Ease\TWB\Col(4));
 
 $infoBlock = $infoColumn->addItem(new \Ease\TWB\Well(new \Ease\Html\ImgTag('images/password.png')));
-$infoBlock->addItem(_('Welcome to FlexiHuBee'));
+$infoBlock->addItem(_('Welcome to FlexiHUBee'));
 
 $loginColumn = $loginRow->addItem(new \Ease\TWB\Col(4));
 
 $submit = new \Ease\TWB\SubmitButton(_('Sign In'), 'success');
 
-$loginPanel = new \Ease\TWB\Panel(new \Ease\Html\ImgTag('images/logo.png'),
-    'success', null, $submit);
+$titlerow = new \Ease\TWB\Row();
+$titlerow->addColumn(4, new \Ease\Html\ImgTag('images/logo.png'));
+$titlerow->addColumn(8, new \Ease\Html\H2Tag(_('Singn In')));
+
+$loginPanel = new \Ease\TWB\Panel(new \Ease\TWB\Container($titlerow), 'success',
+    null, $submit);
 $loginPanel->addItem(new \Ease\TWB\FormGroup(_('Username'),
     new \Ease\Html\InputTextTag('login', $login)));
 $loginPanel->addItem(new \Ease\TWB\FormGroup(_('Password'),

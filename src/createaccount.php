@@ -149,7 +149,7 @@ $regForm->addInput(new \Ease\Html\InputPasswordTag('password'),
 $regForm->addInput(new \Ease\Html\InputPasswordTag('confirmation'),
     _('Password confirmation').' *');
 $regForm->addInput(new \Ease\Html\InputTextTag('email_address'),
-    _('eMailová address').' *');
+    _('eMail address').' *');
 
 $regForm->addItem(new \Ease\Html\Div(new \Ease\Html\InputSubmitTag('Register',
     _('Register'),
