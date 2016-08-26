@@ -1,11 +1,11 @@
 <?php
-
 /**
  * FlexiHuBee - User.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Spoje.Net
+ * @copyright  2015-2016 Vitex Software
  */
+
 namespace FlexiHuBee;
 
 /**
@@ -13,7 +13,7 @@ namespace FlexiHuBee;
  */
 class User extends \Ease\User
 {
-    public $useKeywords = [
+    public $useKeywords  = [
         'login' => 'STRING',
         'firstname' => 'STRING',
         'lastname' => 'STRING',
@@ -112,5 +112,4 @@ class User extends \Ease\User
     {
         return $this->getDataValue('email');
     }
-
 }

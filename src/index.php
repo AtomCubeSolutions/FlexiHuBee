@@ -17,6 +17,20 @@ $oPage->onlyForLogged();
 
 $oPage->addItem(new ui\PageTop(_('FlexiHuBee')));
 
+$flexiBees = new FlexiBees();
+
+if ($oPage->isPosted()) {
+    $flexiBees->takeData($_POST);
+    if ($flexiBees->saveToSQL()) {
+        $flexiBees->addStatusMessage(_('FlexiBee instance Saved'), 'success');
+    } else {
+        $flexiBees->addStatusMessage(_('Error saving FlexiBee instance'),
+            'error');
+    }
+}
+
+$oPage->container->addItem(new \Ease\TWB\Panel(_('New FlexiBee'), 'info',
+    new ui\RegisterFlexiBeeForm($flexiBees)));
 
 $oPage->addItem(new ui\PageBottom());
 

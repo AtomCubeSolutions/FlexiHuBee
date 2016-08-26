@@ -180,7 +180,7 @@ class ColumnsForm extends \Ease\TWB\Form
 
     public function finalize()
     {
-        $recordID = $this->engine->getId();
+        $recordID = $this->engine->getMyKey();
         $this->addItem(new \Ease\Html\InputHiddenTag('class',
             get_class($this->engine)));
         if (!is_null($recordID)) {
