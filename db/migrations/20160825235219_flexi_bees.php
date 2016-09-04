@@ -17,7 +17,9 @@ class FlexiBees extends AbstractMigration
             ->addColumn('company', 'string', ['comment' => 'Company Code'])
             ->addColumn('rw', 'boolean', ['comment' => 'Read/Write access ?'])
             ->addColumn('DatCreate', 'datetime')
-            ->addColumn('DatSave', 'datetime')
+            ->addColumn('DatSave', 'datetime', ['null' => 'true'])
+            ->addIndex(['url', 'company'],
+                ['unique' => true, 'name' => 'fbs_uniq'])
             ->create();
     }
 }

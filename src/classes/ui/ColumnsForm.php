@@ -113,72 +113,15 @@ class ColumnsForm extends \Ease\TWB\Form
     }
 
     /**
-     * Přidá do formuláře tlačítko "Uložit a další".
+     * Add to form button  "Save next ext".
      */
     public function addSubmitSaveAndNext()
     {
         $this->savers->addItem(new \Ease\Html\InputSubmitTag('gotonew',
-            _('Uložit a další'), ['class' => 'btn btn-success']));
+            _('Save and next'), ['class' => 'btn btn-success']));
     }
 
-    /**
-     * Vyplní formulář.
-     *
-     * @param SysEngine $datasource
-     */
-    public function populate($datasource)
-    {
-        $recordID = $datasource->getMyKey();
-
-        foreach ($datasource->keywordsInfo as $col_name => $col_info) {
-            if (isset($datasource->myLastModifiedColumn) && ($datasource->myLastModifiedColumn
-                == $col_name)) {
-                continue;
-            }
-            if (isset($datasource->myCreateColumn) && ($datasource->myCreateColumn
-                == $col_name)) {
-                continue;
-            }
-            $placeholder = $helptext    = '';
-            $value       = $datasource->getDataValue($col_name);
-            if (isset($col_info['title'])) {
-                $caption = $col_info['title'];
-            } else {
-                $caption = $col_name;
-            }
-            if (isset($datasource->useKeywords[$col_name])) {
-                $type = preg_replace('/[^A-Z]+/', '',
-                    $datasource->useKeywords[$col_name]);
-            } else {
-                $type = 'text';
-            }
-
-            switch ($type) {
-                case 'BOOL':
-                    $input_widget = new YesNoSwitch($col_name, $value);
-                    break;
-                case 'INT':
-                    $input_widget = new SpinBox($col_name, $value);
-                    break;
-                case 'DATE':
-                    $input_widget = new DatePicker($col_name, $value);
-                    break;
-                case 'TEXT':
-                    $input_widget = new \Ease\Html\TextareaTag($col_name,
-                        $value, ['class' => 'form-control']);
-                    break;
-                case 'STRING':
-                    $input_widget = new \Ease\Html\InputTag($col_name, $value,
-                        ['class' => 'form-control']);
-                default:
-                    break;
-            }
-
-            $this->addInput($input_widget, $caption, $placeholder, $helptext);
-        }
-    }
-
-    public function finalize()
+     public function finalize()
     {
         $recordID = $this->engine->getMyKey();
         $this->addItem(new \Ease\Html\InputHiddenTag('class',

@@ -31,5 +31,9 @@ class RegisterFlexiBeeForm extends ColumnsForm
         $this->addInput(new TWBSwitch('rw'), _('Read/Write access ?'));
 
         $this->addInput(new \Ease\TWB\SubmitButton(_('Save'), 'success'));
+        if ($this->engine->getDataCount()) {
+            $this->fillUp($this->engine->getData());
+            $this->addItem(new \Ease\Html\InputHiddenTag('id'));
+        }
     }
-}
+ }

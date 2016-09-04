@@ -1,7 +1,4 @@
 <?php
-
-namespace FlexiHuBee;
-
 /**
  * FlexiHuBee - Hlavní strana.
  *
@@ -19,19 +16,12 @@ $oPage->addItem(new ui\PageTop(_('FlexiHuBee')));
 
 $flexiBees = new FlexiBees();
 
-if ($oPage->isPosted()) {
-    $flexiBees->takeData($_POST);
-    if ($flexiBees->saveToSQL()) {
-        $flexiBees->addStatusMessage(_('FlexiBee instance Saved'), 'success');
-    } else {
-        $flexiBees->addStatusMessage(_('Error saving FlexiBee instance'),
-            'error');
-    }
+$instances = $flexiBees->getAllFromSQL();
+if (count($instances) < 2) {
+    $flexiBees->addStatusMessage(_('Please register at least two FlexiBee instances').' '.sprintf(_('%s defined now'),
+            count($instances)), 'warning');
+    $oPage->redirect('flexibee.php');
 }
-
-$oPage->container->addItem(new \Ease\TWB\Panel(_('New FlexiBee'), 'info',
-    new ui\RegisterFlexiBeeForm($flexiBees)));
-
 $oPage->addItem(new ui\PageBottom());
 
 $oPage->draw();

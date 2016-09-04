@@ -17,6 +17,7 @@ class MainMenu extends \Ease\Html\Div
     public function __construct()
     {
         parent::__construct(null, ['id' => 'MainMenu']);
+        $this->addItem('');
     }
 
     /**
@@ -32,7 +33,7 @@ class MainMenu extends \Ease\Html\Div
         $keycolumn  = $source->getmyKeyColumn();
         $namecolumn = $source->nameColumn;
         $lister     = $source->getColumnsFromSQL([$source->getmyKeyColumn(), $namecolumn],
-            [$keycolumn => true], $namecolumn, $keycolumn);
+            null, $namecolumn, $keycolumn);
 
         $itemList = [];
         if ($lister) {
@@ -46,7 +47,7 @@ class MainMenu extends \Ease\Html\Div
     }
 
     /**
-     * Vložení menu.
+     * Insert menu.
      */
     public function afterAdd()
     {
@@ -54,7 +55,41 @@ class MainMenu extends \Ease\Html\Div
 
         $userID = \Ease\Shared::user()->getUserID();
         if ($userID) { //Authenticated user
+            $nav->addDropDownMenu('<img width=30 src=images/flexibee-logo.png> '._('FlexiBee instances'),
+                array_merge([
+                'flexibee.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New Instance'),
+//                'flexibees.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Instance list'),
+                '' => '',
+                    ], $this->getMenuList(new \FlexiHuBee\FlexiBees(), 'name'))
+            );
 
+
+
+//            $nav->addDropDownMenu('<img width=30 src=images/profits_150.png> '._('Importy'),
+//                array(
+//                'storage2flexibee.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('Sklad do FlexiBee'),
+//                'invoice2flexibee.php' => \Ease\TWB\Part::GlyphIcon('plus').'&nbsp;'._('Faktury do Flexibee'),
+//                'address2flexibee.php' => \Ease\TWB\Part::GlyphIcon('plus').'&nbsp;'._('Adresář do Flexibee'),
+//                )
+//            );
+//            $nav->addDropDownMenu('<img width=30 src=img/contract_150.png> '._('Smlouvy'),
+//                array_merge(array(
+//                'contract.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('Nová smlouva'),
+//                'contracts.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Přehled smluv'),
+//                'rspcntrcts.php' => \Ease\TWB\Part::GlyphIcon('user').'&nbsp;'._('Respondenti'),
+//                ))
+//            );
+            $nav->addDropDownMenu('<img width=30 src=images/users_150.png> '._('Uživatelé'),
+                array_merge([
+                'createaccount.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('Nový uživatel'),
+                'users.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Přehled uživatelů'),
+                '' => '',
+                    ], $this->getMenuList(\Ease\Shared::user(), 'user'))
+            );
+
+
+            $nav->addMenuItem(new \Ease\TWB\LinkButton('invoice.php',
+                _('Faktura')));
         }
     }
 
