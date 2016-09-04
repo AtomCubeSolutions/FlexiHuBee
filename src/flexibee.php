@@ -27,11 +27,16 @@ if ($oPage->isPosted()) {
     }
 }
 
-if (!strlen($instanceName)) {
+if (strlen($instanceName)) {
+    $instanceLink = new \Ease\Html\ATag($flexiBees->getLink(),
+        $flexiBees->getLink());
+} else {
     $instanceName = _('New FlexiBee instance');
+    $instanceLink = null;
 }
 
-$oPage->container->addItem(new \Ease\TWB\Panel($instanceName, 'info', new ui\RegisterFlexiBeeForm($flexiBees)));
+$oPage->container->addItem(new \Ease\TWB\Panel($instanceName, 'info',
+    new ui\RegisterFlexiBeeForm($flexiBees), $instanceLink));
 
 $oPage->addItem(new ui\PageBottom());
 
