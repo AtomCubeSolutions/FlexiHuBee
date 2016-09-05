@@ -1,8 +1,9 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * FlexiHuBee - Synchronization engine.
+ *
+ * @author     Vítězslav Dvořák <vitex@arachne.cz>
+ * @copyright  2015-2016 Vitex Software
  */
 
 namespace FlexiHuBee;
@@ -48,8 +49,11 @@ class Syncer extends \Ease\Atom
             $invoicer      = new \FlexiPeeHP\FakturaVydana(null, $flexiBee);
             $invoicesForMe = $invoicer->getColumnsFromFlexibee('*',
                 ['ic' => $me['ic']]); //+ newer than last saved
-            if (count($invoicesForMe)) {
+            if (($invoicer->lastResponseCode == 200) && count($invoicesForMe)) {
                 $invoices = array_merge($invoices, $invoicesForMe);
+            } else {
+                $this->addStatusMessage(sprintf(_('Could not obtain invoices forom %s'),
+                        $flexiBee['name']), 'warning');
             }
         }
         return $invoices;
