@@ -50,10 +50,12 @@ class FlexiBees extends Engine
     public function takeData($data)
     {
         unset($data['class']);
-        if (isset($data['id']) && !strlen($data['id'])) {
-            unset($data['id']);
-        } else {
-            $data['id'] = intval($data['id']);
+        if (isset($data['id'])) {
+            if (!strlen($data['id'])) {
+                unset($data['id']);
+            } else {
+                $data['id'] = intval($data['id']);
+            }
         }
         if (isset($data['rw'])) {
             $data['rw'] = true;
@@ -73,6 +75,13 @@ class FlexiBees extends Engine
         return $this->getDataValue('url').'/c/'.$this->getDataValue('company');
     }
 
+    /**
+     * Get Copany Identification number, establish webhook and save
+     *
+     * @param array $data
+     * @param boolean $searchForID
+     * @return int result
+     */
     public function saveToSQL($data = null, $searchForID = false)
     {
         if (is_null($data)) {
@@ -80,13 +89,20 @@ class FlexiBees extends Engine
         }
         if (!isset($data['ic'])) {
             $flexiBeeData = new \FlexiPeeHP\Nastaveni(1, $data);
-            $data['ic']   = intval($flexiBeeData->getDataValue('ic'));
-            $this->addStatusMessage(sprintf(_('Succesfully obtained organisation identification number #%d from FlexiBee %s'),
-                    $data['ic'], $data['name']), 'success');
+            $ic           = $flexiBeeData->getDataValue('ic');
+            if (strlen($ic)) {
+                $data['ic'] = intval($ic);
+                $this->addStatusMessage(sprintf(_('Succesfully obtained organisation identification number #%d from FlexiBee %s'),
+                        $data['ic'], $data['name']), 'success');
+            } else {
+                $this->addStatusMessage(sprintf(_('Cannot obtain organisation identification number for FlexiBee %s'),
+                        $data['name']), 'error');
+            }
         }
         if ($data['rw']) {
             //Enable ChangesAPI and establish WebHook here
         }
         return parent::saveToSQL($data, $searchForID);
     }
+
 }

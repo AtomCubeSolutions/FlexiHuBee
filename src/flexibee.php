@@ -19,11 +19,11 @@ $instanceName = $flexiBees->getRecordName();
 
 if ($oPage->isPosted()) {
     $flexiBees->takeData($_POST);
-    if ($flexiBees->saveToSQL()) {
-        $flexiBees->addStatusMessage(_('FlexiBee instance Saved'), 'success');
-    } else {
+    if (is_null($flexiBees->saveToSQL())) {
         $flexiBees->addStatusMessage(_('Error saving FlexiBee instance'),
             'error');
+    } else {
+        $flexiBees->addStatusMessage(_('FlexiBee instance Saved'), 'success');
     }
 }
 

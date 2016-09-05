@@ -1,9 +1,9 @@
 <?php
 /**
- * FlexiHuBee - Init aplikace.
+ * FlexiHuBee - Application init.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Vitex Software
+ * @copyright  2016 Vitex Software
  */
 
 namespace FlexiHuBee;

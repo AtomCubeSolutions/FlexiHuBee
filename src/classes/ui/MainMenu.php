@@ -88,8 +88,8 @@ class MainMenu extends \Ease\Html\Div
             );
 
 
-            $nav->addMenuItem(new \Ease\TWB\LinkButton('invoice.php',
-                _('Faktura')));
+            $nav->addMenuItem(new \Ease\TWB\LinkButton('sync.php',
+                _('Synchronise now'), 'success'));
         }
     }
 

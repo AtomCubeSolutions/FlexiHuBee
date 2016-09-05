@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d422f588a7bf8cba4904e8c661748434",
-    "content-hash": "ad78dd1a80c58847c55cb56d0dc90f4f",
+    "hash": "d550710f338afe8f0cd0df93d335e0d5",
+    "content-hash": "f6bb1145d32d5373a1e0d22e42e83bf7",
     "packages": [
         {
             "name": "pear/console_getopt",
@@ -95,7 +95,7 @@
                 {
                     "name": "Chuck Hagenbuch",
                     "email": "chuck@horde.org",
-                    "role": "lead"
+                    "role": "Lead"
                 },
                 {
                     "name": "Richard Heyes",
@@ -259,16 +259,16 @@
         },
         {
             "name": "spoje.net/flexipeehp",
-            "version": "dev-master",
+            "version": "1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spoje-NET/FlexiPeeHP.git",
-                "reference": "bf19e6723efb0e70cae52cdf683f19bec0abe1e0"
+                "reference": "fa5cda7d33e1ecf080f5a61de6c680d7ea1ff20f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spoje-NET/FlexiPeeHP/zipball/bf19e6723efb0e70cae52cdf683f19bec0abe1e0",
-                "reference": "bf19e6723efb0e70cae52cdf683f19bec0abe1e0",
+                "url": "https://api.github.com/repos/Spoje-NET/FlexiPeeHP/zipball/fa5cda7d33e1ecf080f5a61de6c680d7ea1ff20f",
+                "reference": "fa5cda7d33e1ecf080f5a61de6c680d7ea1ff20f",
                 "shasum": ""
             },
             "require": {
@@ -300,20 +300,20 @@
                 }
             ],
             "description": "PHP Based Library for easy interaction with czech accounting system Flexibee.",
-            "time": "2016-08-18 15:09:19"
+            "time": "2016-09-05 10:16:14"
         },
         {
             "name": "vitexsoftware/ease-framework",
-            "version": "dev-master",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/VitexSoftware/EaseFramework.git",
-                "reference": "ef98184e5cf2b59ecafc16c26d401483ad4fe2b5"
+                "reference": "b8615b66bb8cdd40e0bef9013c635b2404426529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/VitexSoftware/EaseFramework/zipball/ef98184e5cf2b59ecafc16c26d401483ad4fe2b5",
-                "reference": "ef98184e5cf2b59ecafc16c26d401483ad4fe2b5",
+                "url": "https://api.github.com/repos/VitexSoftware/EaseFramework/zipball/b8615b66bb8cdd40e0bef9013c635b2404426529",
+                "reference": "b8615b66bb8cdd40e0bef9013c635b2404426529",
                 "shasum": ""
             },
             "require": {
@@ -354,7 +354,7 @@
             ],
             "description": "An PHP Framework for Ease of writing Applications",
             "homepage": "http://v.s.cz/ease.php",
-            "time": "2016-08-10 16:20:02"
+            "time": "2016-09-04 21:50:03"
         }
     ],
     "packages-dev": [
@@ -1670,16 +1670,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "a7630397b91be09cdd2fe57fd13612e258700598"
+                "reference": "431d28df9c7bb6e77f8f6289d8670b044fabb9e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/a7630397b91be09cdd2fe57fd13612e258700598",
-                "reference": "a7630397b91be09cdd2fe57fd13612e258700598",
+                "url": "https://api.github.com/repos/symfony/config/zipball/431d28df9c7bb6e77f8f6289d8670b044fabb9e8",
+                "reference": "431d28df9c7bb6e77f8f6289d8670b044fabb9e8",
                 "shasum": ""
             },
             "require": {
@@ -1719,20 +1719,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-26 08:04:17"
+            "time": "2016-08-27 18:50:07"
         },
         {
             "name": "symfony/console",
-            "version": "v2.8.9",
+            "version": "v2.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "36e62335caca8a6e909c5c5bac4a8128149911c9"
+                "reference": "bac1eb5869c1848a173852aee61df960e3a49197"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/36e62335caca8a6e909c5c5bac4a8128149911c9",
-                "reference": "36e62335caca8a6e909c5c5bac4a8128149911c9",
+                "url": "https://api.github.com/repos/symfony/console/zipball/bac1eb5869c1848a173852aee61df960e3a49197",
+                "reference": "bac1eb5869c1848a173852aee61df960e3a49197",
                 "shasum": ""
             },
             "require": {
@@ -1779,11 +1779,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30 07:20:35"
+            "time": "2016-08-19 06:48:01"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -1891,16 +1891,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.1.3",
+            "version": "v3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "1819adf2066880c7967df7180f4f662b6f0567ac"
+                "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/1819adf2066880c7967df7180f4f662b6f0567ac",
-                "reference": "1819adf2066880c7967df7180f4f662b6f0567ac",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/f291ed25eb1435bddbe8a96caaef16469c2a092d",
+                "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d",
                 "shasum": ""
             },
             "require": {
@@ -1936,7 +1936,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-17 14:02:08"
+            "time": "2016-09-02 02:12:52"
         },
         {
             "name": "webmozart/assert",
@@ -1992,8 +1992,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "spoje.net/flexipeehp": 20,
-        "vitexsoftware/ease-framework": 20,
         "robmorgan/phinx": 20
     },
     "prefer-stable": false,

@@ -31,7 +31,7 @@ class PageBottom extends \Ease\TWB\Container
 
         $rowFluid2->addItem(new \Ease\TWB\Col(12,
             [new \Ease\TWB\Col(8, ''), new \Ease\TWB\Col(4,
-                _('&copy; 2016 Vitex Software s.r.o.'))]));
+                _('&copy; 2016 Vitex Software'))]));
 
         $this->addItem($rowFluid2);
     }

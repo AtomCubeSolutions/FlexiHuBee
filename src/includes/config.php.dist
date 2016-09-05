@@ -1,70 +1,61 @@
 <?php
 
 /**
- * System.Spoje.Net - Konfigurace aplikace.
+ * FlexiHuBee - Application config.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Spoje.Net
+ * @copyright  2016 Vitex Software
  */
 
+//Logging
+
 /**
- * Adresa odesilatele
+ * For Logging we use
  */
-define('SEND_MAILS_FROM', 'noreply@spoje.net');
+define('LOG_TYPE', 'syslog');
 /**
- * Databázový server
+ * Application name in in log records
+ */
+define('LOG_NAME', 'FlexuHUBee');
+
+//Database
+
+/**
+ * Database server host
  */
 define('DB_SERVER', 'localhost');
 /**
- * Uživatelské jméno k databázi
+ * Database username
  */
-define('DB_SERVER_USERNAME', 'system');
+define('DB_SERVER_USERNAME', 'flexihubee');
 /**
- * Heslo k databázi
+ * Database password
  */
-define('DB_SERVER_PASSWORD', 'system');
+define('DB_SERVER_PASSWORD', 'flexihubee');
 /**
- * Název databáze
+ * Database name
  */
-define('DB_DATABASE', 'lms');
+define('DB_DATABASE', 'flexihubee');
+/**
+ * Database port
+ */
+define('DB_PORT', 5432);
+/**
+ * Database type
+ */
+define('DB_TYPE', 'pgsql');
+
+//Mailing
 
 /**
- * Adresář pro zápis logů
+ * Default mail sender
  */
-define('LOG_DIRECTORY', '/var/tmp/');
-
+define('EMAIL_FROM', 'flexihubee@localhost');
 /**
- * Adresář LMS
+ * Where send info about new sign ups
  */
-define('LMS_DIRECTORY', '/var/www/html/lms/');
-
+define('SEND_INFO_TO', 'root@localhost');
 /**
- * Adresář Skladu
+ * Default sender address
  */
-define('SKLAD_DIRECTORY', '/var/www/html/skladu/');
-
-/**
- * Výchozí odesilatel zpráv
- */
-define('EMAIL_FROM', 'system@spojen.net');
-/**
- * Kam posílat oznámení o nových registracích
- */
-define('SEND_INFO_TO', 'moora@murka.cz');
-
-/**
- * URL Flexibee API
- */
-define('FLEXIBEE_URL', 'https://flexibee.spoje.net/');
-/**
- * Uživatel FlexiBee API
- */
-define('FLEXIBEE_LOGIN', 'system');
-/**
- * Heslo FlexiBee API
- */
-define('FLEXIBEE_PASSWORD', 'system');
-/**
- * Společnost v FlexiBee
- */
-define('FLEXIBEE_COMPANY', 'Spoje.Net');
+define('SEND_MAILS_FROM', 'noreply@spoje.net');
