@@ -8,7 +8,7 @@
 
 namespace FlexiHuBee\ui;
 
-class MainMenu extends \Ease\Html\Div
+class MainMenu extends \Ease\Html\DivTag
 {
 
     /**
@@ -30,9 +30,9 @@ class MainMenu extends \Ease\Html\Div
      */
     protected function getMenuList($source, $icon = '')
     {
-        $keycolumn  = $source->getmyKeyColumn();
+        $keycolumn  = $source->getkeyColumn();
         $namecolumn = $source->nameColumn;
-        $lister     = $source->getColumnsFromSQL([$source->getmyKeyColumn(), $namecolumn],
+        $lister     = $source->getColumnsFromSQL([$source->getkeyColumn(), $namecolumn],
             null, $namecolumn, $keycolumn);
 
         $itemList = [];
@@ -79,17 +79,16 @@ class MainMenu extends \Ease\Html\Div
 //                'rspcntrcts.php' => \Ease\TWB\Part::GlyphIcon('user').'&nbsp;'._('Respondenti'),
 //                ))
 //            );
-            $nav->addDropDownMenu('<img width=30 src=images/users_150.png> '._('Uživatelé'),
+            $nav->addDropDownMenu('<img width=30 src=images/users_150.png> '._('Users'),
                 array_merge([
-                'createaccount.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('Nový uživatel'),
+                'createaccount.php' => \Ease\TWB\Part::GlyphIcon('plus').' '._('New   '),
                 'users.php' => \Ease\TWB\Part::GlyphIcon('list').'&nbsp;'._('Přehled uživatelů'),
                 '' => '',
                     ], $this->getMenuList(\Ease\Shared::user(), 'user'))
             );
 
 
-            $nav->addMenuItem(new \Ease\TWB\LinkButton('sync.php',
-                _('Synchronise now'), 'success'));
+            $nav->addMenuItem(new SyncButton());
         }
     }
 

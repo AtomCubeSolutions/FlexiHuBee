@@ -42,7 +42,7 @@ if ($oPage->isPosted()) {
             $oUser->addStatusMessage(_('invalid mail address'), 'warning');
         } else {
             $testuser = new \Ease\User();
-            $testuser->setmyKeyColumn('email');
+            $testuser->setkeyColumn('email');
             $testuser->loadFromSQL($oPage->EaseAddSlashes($emailAddress));
             if ($testuser->getUserName()) {
                 $error = true;
@@ -62,7 +62,7 @@ if ($oPage->isPosted()) {
     }
 
     $testuser = new \Ease\User();
-    $testuser->setmyKeyColumn('login');
+    $testuser->setkeyColumn('login');
     $testuser->loadFromSQL($oPage->EaseAddSlashes($login));
     $testuser->resetObjectIdentity();
 

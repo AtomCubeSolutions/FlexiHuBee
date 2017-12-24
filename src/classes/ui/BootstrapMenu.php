@@ -28,8 +28,8 @@ class BootstrapMenu extends \Ease\TWB\Navbar
                                 $properties = null)
     {
         parent::__construct('Menu',
-            new \Ease\Html\ImgTag('images/logo.png', _('FlexiHUBee'), 24, 24,
-            ['class' => 'img-rounded']), ['class' => 'navbar-fixed-top']);
+            new \Ease\Html\ImgTag('images/logo.png', _('FlexiHUBee'),
+            ['class' => 'img-rounded','style'=>'height: 24px']), ['class' => 'navbar-fixed-top']);
 
         $user = \Ease\Shared::user();
         \Ease\TWB\Part::twBootstrapize();

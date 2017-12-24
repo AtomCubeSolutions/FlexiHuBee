@@ -3,15 +3,15 @@
  * FlexiHuBee - BootStrap Menu.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015-2016 Vitex Software
+ * @copyright  2015-2017 Vitex Software
  */
 
 namespace FlexiHuBee\ui;
 
 /**
- * Description of RegisterFlexiBeeForm
+ * Registered FlexiBee instance editor Form
  *
- * @author vitex
+ * @author 
  */
 class RegisterFlexiBeeForm extends ColumnsForm
 {
@@ -28,7 +28,8 @@ class RegisterFlexiBeeForm extends ColumnsForm
             _('Rest API Password'));
         $this->addInput(new \Ease\Html\InputTextTag('company'),
             _('Company Code'));
-        $this->addInput(new TWBSwitch('rw'), _('Read/Write access ?'));
+        $this->addInput(new \Ease\ui\TWBSwitch('rw'), _('Write access ?'));
+        $this->addInput(new \Ease\ui\TWBSwitch('webhook'), _('Register webhook'));
 
         $this->addInput(new \Ease\TWB\SubmitButton(_('Save'), 'success'));
 
@@ -40,4 +41,4 @@ class RegisterFlexiBeeForm extends ColumnsForm
             $this->fillUp($this->engine->getData());
         }
     }
- }
+}

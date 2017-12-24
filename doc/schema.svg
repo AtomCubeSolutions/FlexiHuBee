@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="49cm" height="29cm" viewBox="140 168 980 572" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Pozadí">
+    <image x="500" y="360" width="225" height="225" xlink:href="flexihubee-logo.png"/>
+    <image x="280" y="320" width="154" height="154" xlink:href="file:///home/vitex/Projects/VitexSoftware/FlexiProxy/project_logo.png"/>
+    <image x="800" y="460" width="154" height="154" xlink:href="file:///home/vitex/Projects/VitexSoftware/FlexiProxy/project_logo.png"/>
+    <image x="140" y="260" width="80" height="80" xlink:href="file:///home/vitex/Projects/VitexSoftware/Packaging/flexibee-server/server/flexibee-server.png"/>
+    <image x="620" y="200" width="80" height="80" xlink:href="file:///home/vitex/Projects/VitexSoftware/Packaging/flexibee-server/server/flexibee-server.png"/>
+    <image x="1040" y="560" width="80" height="80" xlink:href="file:///home/vitex/Projects/VitexSoftware/Packaging/flexibee-server/server/flexibee-server.png"/>
+    <image x="520" y="660" width="80" height="80" xlink:href="file:///home/vitex/Projects/VitexSoftware/Packaging/flexibee-server/server/flexibee-server.png"/>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="660" y1="280" x2="617.471" y2="351.628"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="613.642,358.077 614.448,346.926 617.471,351.628 623.046,352.031 "/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="442.967" y1="400.793" x2="491.028" y2="421.121"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="436.059,397.871 447.217,397.162 442.967,400.793 443.322,406.372 "/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="497.936,424.043 486.778,424.752 491.028,421.121 490.673,415.542 "/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="792.618" y1="530.652" x2="732.382" y2="478.848"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="798.305,535.542 787.463,532.813 792.618,530.652 793.983,525.231 "/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="726.695,473.958 737.537,476.687 732.382,478.848 731.017,484.269 "/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="225.122" y1="308.28" x2="274.878" y2="388.72"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="221.176,301.902 230.689,307.776 225.122,308.28 222.185,313.036 "/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="278.824,395.098 269.311,389.224 274.878,388.72 277.815,383.964 "/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="565.583" y1="652.024" x2="606.917" y2="592.976"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="561.282,658.168 562.921,647.109 565.583,652.024 571.113,652.843 "/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="611.218,586.832 609.579,597.891 606.917,592.976 601.387,592.157 "/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="1032.15" y1="594.246" x2="961.854" y2="542.754"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1038.2,598.679 1027.17,596.803 1032.15,594.246 1033.08,588.735 "/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="955.804,538.321 966.826,540.197 961.854,542.754 960.916,548.265 "/>
+    </g>
+    <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="140" y="240">
+      <tspan x="140" y="240">FlexiBee</tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1040" y="540">
+      <tspan x="1040" y="540">FlexiBee</tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="620" y="180">
+      <tspan x="620" y="180">FlexiBee</tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="520" y="640">
+      <tspan x="520" y="640">FlexiBee</tspan>
+    </text>
+    <text font-size="28.2218" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="660" y="380">
+      <tspan x="660" y="380">FlexiHUBee</tspan>
+    </text>
+  </g>
+</svg>

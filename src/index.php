@@ -12,7 +12,7 @@ require_once 'includes/Init.php';
 
 $oPage->onlyForLogged();
 
-$oPage->addItem(new ui\PageTop(_('FlexiHuBee')));
+$oPage->addItem(new ui\PageTop(_('FlexiHUBee')));
 
 $flexiBees = new FlexiBees();
 
@@ -22,7 +22,7 @@ if (count($instances) < 2) {
             count($instances)), 'warning');
     $oPage->redirect('flexibee.php');
 } else {
-    $mainPageMenu = new ui\MainPageMenu();
+    $mainPageMenu = new \Ease\ui\MainPageMenu();
     $mainPageMenu->addMenuItem('images/sync.png', _('Synchronization'),
         'sync.php');
     $oPage->container->addItem($mainPageMenu);

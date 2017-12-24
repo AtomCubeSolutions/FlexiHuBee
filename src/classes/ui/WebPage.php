@@ -64,14 +64,10 @@ class WebPage extends \Ease\TWB\WebPage
      */
     function addPageColumns()
     {
-        $row = $this->container->addItem(new \Ease\Html\Div(null,
-            ['class' => 'row']));
-        $this->columnI   = $row->addItem(new \Ease\Html\Div(null,
-            ['class' => 'col-md-4']));
-        $this->columnII  = $row->addItem(new \Ease\Html\Div(null,
-            ['class' => 'col-md-4']));
-        $this->columnIII = $row->addItem(new \Ease\Html\Div(null,
-            ['class' => 'col-md-4']));
+        $row             = $this->container->addItem(new \Ease\TWB\Row());
+        $this->columnI   = $row->addItem(new \Ease\TWB\Col(4));
+        $this->columnII  = $row->addItem(new \Ease\TWB\Col(4));
+        $this->columnIII = $row->addItem(new \Ease\TWB\Col(4));
     }
 
     /**
@@ -79,11 +75,11 @@ class WebPage extends \Ease\TWB\WebPage
      *
      * @param string $loginPage
      */
-    public function onlyForAdmin($loginPage = 'login.php')
+    public function onlyForAdmin($loginPage = 'login.php', $message = null)
     {
         if (!$this->user->getSettingValue('admin')) {
-            \Ease\Shared::user()->addStatusMessage(_('Sign in as admin first'),
-                'warning');
+            \Ease\Shared::user()->addStatusMessage(empty($message) ? _('Sign in as admin first')
+                        : $message, 'warning');
             $this->redirect($loginPage);
             exit;
         }
@@ -94,8 +90,9 @@ class WebPage extends \Ease\TWB\WebPage
      *
      * @param string $loginPage login page address
      */
-    public function onlyForLogged($loginPage = 'login.php')
+    public function onlyForLogged($loginPage = 'login.php', $message = null)
     {
-        return parent::onlyForLogged($loginPage.'?backurl='.urlencode($_SERVER['REQUEST_URI']));
+        return parent::onlyForLogged($loginPage.'?backurl='.urlencode($_SERVER['REQUEST_URI']),
+                $message);
     }
 }

@@ -27,11 +27,11 @@ if ($emailTo) {
     $userEmail = \Ease\Shared::db()->easeAddSlashes($emailTo);
 
     $controlUser = new User();
-    $controlData = $controlUser->getColumnsFromSql($controlUser->getmyKeyColumn(),
+    $controlData = $controlUser->getColumnsFromSql($controlUser->getkeyColumn(),
         ['email' => $userEmail]);
 
     if (count($controlData)) {
-        $controlUser->loadFromSQL((int) $controlData[0][$controlUser->getmyKeyColumn()]);
+        $controlUser->loadFromSQL((int) $controlData[0][$controlUser->getkeyColumn()]);
         $userLogin   = $controlUser->getUserLogin();
         $newPassword = $oPage->randomString(8);
 

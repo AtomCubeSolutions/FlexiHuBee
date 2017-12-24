@@ -1,0 +1,14 @@
+ {
+    "EASE_APPNAME": "FlexiHubee",
+    "EASE_LOGGER": "syslog",
+    "SEND_MAILS_FROM": "flexihubee@vitexsoftware.cz",
+    "EMAIL_FROM": "flexihubee@vitexsoftware.cz",
+    "EASE_EMAILTO": "info@vitexsoftware.cz",
+    "SEND_INFO_TO": "info@vitexsoftware.cz",
+    "DB_HOST": "localhost",
+    "DB_USERNAME": "flexihubee",
+    "DB_PASSWORD": "flexihubee",
+    "DB_DATABASE": "flexihubee",
+    "DB_PORT": 5432,
+    "DB_TYPE": "pgsql"
+}

@@ -16,7 +16,13 @@ if (!is_object($oUser)) {
 
 $login = $oPage->getRequestValue('login');
 if ($login) {
-    $oUser = \Ease\Shared::user(new User());
+    try {
+        $oUser = \Ease\Shared::user(new User());
+    } catch (PDOException $e) {
+        echo 'Caught exception: ', $e->getMessage(), "\n";
+    }
+
+
 //    \Ease\Shared::user()->SettingsColumn = 'settings';
     if ($oUser->tryToLogin($_POST)) {
         $oPage->redirect('index.php');
@@ -43,7 +49,7 @@ $loginFace = new \Ease\Html\Div(null, ['id' => 'LoginFace']);
 
 $oPage->container->addItem($loginFace);
 
-$loginRow = new \Ease\TWB\Row();
+$loginRow   = new \Ease\TWB\Row();
 $infoColumn = $loginRow->addItem(new \Ease\TWB\Col(4));
 
 $infoBlock = $infoColumn->addItem(new \Ease\TWB\Well(new \Ease\Html\ImgTag('images/password.png')));
@@ -66,10 +72,13 @@ $loginPanel->addItem(new \Ease\TWB\FormGroup(_('Password'),
 $loginPanel->body->setTagProperties(['style' => 'margin: 20px']);
 $loginColumn->addItem($loginPanel);
 
-$passRecoveryColumn = $loginRow->addItem(new \Ease\TWB\Col(4, new \Ease\TWB\LinkButton('passwordrecovery.php', '<i class="fa fa-key"></i>
+$passRecoveryColumn = $loginRow->addItem(new \Ease\TWB\Col(4,
+    new \Ease\TWB\LinkButton('passwordrecovery.php',
+    '<i class="fa fa-key"></i>
 '._('Password Recovery'), 'warning')));
 
-$passRecoveryColumn->additem(new \Ease\TWB\LinkButton('createaccount.php', '<i class="fa fa-user"></i>
+$passRecoveryColumn->additem(new \Ease\TWB\LinkButton('createaccount.php',
+    '<i class="fa fa-user"></i>
 '._('Sign On'), 'success'));
 
 $oPage->container->addItem(new \Ease\TWB\Form('Login', null, 'POST', $loginRow));

@@ -6,7 +6,7 @@ namespace FlexiHuBee;
  *
  * @author vitex
  */
-class Engine extends \Ease\Brick
+class Engine extends \FlexiPeeHP\FlexiBeeRW
 {
     /**
      * Cloumn of record that contain Name
@@ -25,7 +25,7 @@ class Engine extends \Ease\Brick
         if (is_integer($init)) {
             $this->loadFromSQL($init);
         } elseif (is_string($init)) {
-            $this->setmyKeyColumn($this->nameColumn);
+            $this->setkeyColumn($this->nameColumn);
             $this->loadFromSQL($init);
             $this->restoreObjectIdentity();
         }

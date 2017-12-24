@@ -14,16 +14,16 @@ $oPage->onlyForLogged();
 
 $oPage->addItem(new ui\PageTop(_('FlexiBee instance')));
 
-$flexiBees = new FlexiBees($oPage->getRequestValue('id', 'int'));
+$flexiBees    = new FlexiBees($oPage->getRequestValue('id', 'int'));
 $instanceName = $flexiBees->getRecordName();
 
 if ($oPage->isPosted()) {
-    $flexiBees->takeData($_POST);
-    if (is_null($flexiBees->saveToSQL())) {
+    if ($flexiBees->takeData($_POST) && !is_null($flexiBees->saveToSQL())) {
+        $flexiBees->addStatusMessage(_('FlexiBee instance Saved'), 'success');
+        $flexiBees->prepareRemoteFlexiBee();
+    } else {
         $flexiBees->addStatusMessage(_('Error saving FlexiBee instance'),
             'error');
-    } else {
-        $flexiBees->addStatusMessage(_('FlexiBee instance Saved'), 'success');
     }
 }
 
@@ -35,8 +35,12 @@ if (strlen($instanceName)) {
     $instanceLink = null;
 }
 
+$instanceRow = new \Ease\TWB\Row();
+$instanceRow->addColumn(8,new ui\RegisterFlexiBeeForm($flexiBees));
+$instanceRow->addColumn(4,new ui\FlexiBeeInstanceStatus($flexiBees));
+
 $oPage->container->addItem(new \Ease\TWB\Panel($instanceName, 'info',
-    new ui\RegisterFlexiBeeForm($flexiBees), $instanceLink));
+    $instanceRow, $instanceLink));
 
 $oPage->addItem(new ui\PageBottom());
 
