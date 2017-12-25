@@ -15,16 +15,27 @@ namespace FlexiHuBee;
  */
 class Syncer extends \Ease\Atom
 {
+    /**
+     * FlexiBees instances data
+     * @var array
+     */
+    public $instances = [];
+
+    /**
+     * Sync Tool 
+     */
+    public function __construct()
+    {
+        $flexibees       = new FlexiBees();
+        $this->instances = $flexibees->getColumnsFromSQL('*', null, 'id', 'id');
+    }
 
     public function doSync()
     {
-        $flexibees   = new FlexiBees();
-        $fbInstances = $flexibees->getColumnsFromSQL('*', null, 'id', 'id');
-
-        if (count($fbInstances)) {
-            foreach ($fbInstances as $companyInfo) {
+        if (count($this->instances)) {
+            foreach ($this->instances as $companyInfo) {
                 $invoicesToSave = $this->obtainInvoicesForMe($companyInfo,
-                    $fbInstances);
+                    $this->instances);
                 $this->saveInvoicesForMe($companyInfo, $invoicesToSave);
             }
             //1) Sahni do VitexSoftware pro faktury Spoje
@@ -49,7 +60,10 @@ class Syncer extends \Ease\Atom
             $invoicer      = new \FlexiPeeHP\FakturaVydana(null, $flexiBee);
             $invoicesForMe = $invoicer->getColumnsFromFlexibee('*',
                 ['ic' => $me['ic']]); //+ newer than last saved
-            if (($invoicer->lastResponseCode == 200) && count($invoicesForMe)) {
+            if (($invoicer->lastResponseCode == 200) && count($invoicesForMe) && count($invoicesForMe[0])) {
+                foreach ($invoicesForMe as $iid => $invoiceForMe) {
+                    $invoicesForMe[$iid]['id'] = 'ext:hub'.$flexiBee['id'].':'.$invoiceForMe['id'];
+                }
                 $invoices = array_merge($invoices, $invoicesForMe);
             } else {
                 $this->addStatusMessage(sprintf(_('Could not obtain invoices forom %s'),
@@ -67,11 +81,11 @@ class Syncer extends \Ease\Atom
      */
     public function saveInvoicesForMe($me, $invoicesToSave)
     {
-        $invoicer = new \FlexiPeeHP\FakturaPrijata(null, $me);
+        $invoicer = new FakturaVydanaPrijata(null, $me);
         foreach ($invoicesToSave as $invoiceToSave) {
             $invoicer->takeData($invoiceToSave);
-            if ($invoicer->saveToFlexiBee() && $this->saveLastRecordNumber($me['id'],
-                    'faktura-prijata', $invoicer->getDataValue('id'))) {
+            if ($invoicer->insertToFlexiBee() && $this->saveLastRecordNumber($me['id'],
+                    'faktura-prijata', $invoicer->getIDValue())) {
                 $this->addStatusMessage(_('Invoice Imported'), 'success');
             } else {
                 $this->addStatusMessage(_('Invoice Import error'), 'error');

@@ -42,7 +42,7 @@ class Journal extends \Ease\Brick
      */
     public function updateEvidence($instanceId, $evidence, $topId)
     {
-        $this->dblink->exeQuery('UPDATE '.$this->getMyTable().' SET topid='.$topId.' WHERE instance='.$instanceId.' AND evidence LIKE '.$evidence);
+        $this->dblink->exeQuery('UPDATE '.$this->getMyTable().' SET topid='.$topId.' WHERE instance='.$instanceId.' AND evidence LIKE \''.$evidence.'\'');
         if (!$this->dblink->numRows) {
             $this->dblink->arrayToInsert(['topid' => $topId, 'instance' => $instanceId
                 , 'evidence' => $evidence]);
